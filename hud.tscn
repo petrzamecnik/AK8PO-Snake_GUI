@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bflijpus5hqvd"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ScorePanel" type="Panel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_right = 102.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+vertical_alignment = 1

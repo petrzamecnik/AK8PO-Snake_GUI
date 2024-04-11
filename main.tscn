@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmuqsgodted0u"]
+
+[ext_resource type="PackedScene" uid="uid://bflijpus5hqvd" path="res://hud.tscn" id="1_0t7ll"]
+[ext_resource type="Script" path="res://main.cs" id="1_2mkfo"]
+[ext_resource type="Texture2D" uid="uid://crlns0sb36v6x" path="res://textures/snakeHead.png" id="1_3lhko"]
+[ext_resource type="Texture2D" uid="uid://dn5uh3vy7qcxs" path="res://textures/background2.png" id="3_rmwn5"]
+[ext_resource type="Texture2D" uid="uid://betvh1pkkaa3s" path="res://textures/wall.png" id="5_gjhri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcy8h"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aw4l"]
+size = Vector2(26, 758)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2mkfo")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_0t7ll")]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(384, 416)
+texture = ExtResource("3_rmwn5")
+
+[node name="WallTop" type="Sprite2D" parent="."]
+position = Vector2(384, 48)
+texture = ExtResource("5_gjhri")
+
+[node name="WallBottom" type="Sprite2D" parent="."]
+position = Vector2(384, 784)
+texture = ExtResource("5_gjhri")
+
+[node name="WallRight" type="Sprite2D" parent="."]
+position = Vector2(752, 416)
+rotation = 1.5708
+texture = ExtResource("5_gjhri")
+
+[node name="SnakeHead" type="CharacterBody2D" parent="."]
+position = Vector2(112, 112)
+
+[node name="SnakeHeadSprite" type="Sprite2D" parent="SnakeHead"]
+texture = ExtResource("1_3lhko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeHead"]
+shape = SubResource("RectangleShape2D_mcy8h")
+
+[node name="WallLeft" type="Area2D" parent="."]
+position = Vector2(16, 416)
+
+[node name="WallLeftSprite" type="Sprite2D" parent="WallLeft"]
+rotation = 1.5708
+texture = ExtResource("5_gjhri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+shape = SubResource("RectangleShape2D_0aw4l")
